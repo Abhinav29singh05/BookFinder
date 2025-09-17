@@ -65,13 +65,8 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     if (filters.isbn) params.set("isbn", filters.isbn);
     if (filters.publisher) params.set("publisher", filters.publisher);
     if (filters.subject) params.set("subject", filters.subject);
-    if (filters.language) {
-      console.log(filters.language);
-      params.set("language", filters.language);
-    }
     if (filters.person) params.set("person", filters.person);
     if (filters.place) params.set("place", filters.place);
-    if (filters.published_year) params.set("published_year", filters.published_year);
     params.set("page", String(pageNum));
     params.set("limit", String(DEFAULT_LIMIT));
     return `${API_BASE}?${params.toString()}`;

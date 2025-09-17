@@ -5,7 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Search, X } from 'lucide-react';
 
 // Search field type definition
-type SearchField = 'q' | 'title' | 'author' | 'isbn' | 'publisher' | 'subject' | 'language' | 'published_year'| 'person' | 'place';
+type SearchField = 'q' | 'title' | 'author' | 'isbn' | 'publisher' | 'subject' | 'language' | 'published_year';
 
 interface SearchBarProps {
   /** Initial search field selection */
@@ -26,10 +26,8 @@ const SEARCH_FIELDS = [
   { value: 'isbn' as const, label: 'ISBN', placeholder: 'Search by ISBN' },
   { value: 'publisher' as const, label: 'Publisher', placeholder: 'Search by publisher' },
   { value: 'subject' as const, label: 'Genre', placeholder: 'Search by genre/subject' },
-  { value: 'language' as const, label: 'Language', placeholder: 'Search by language' },
-  { value: 'published_year' as const, label: 'Published Year', placeholder: 'Search by year (e.g., 2020)' },
-  { value: 'person' as const, label: 'Person ', placeholder: 'Search by Person mentioned (e.g., Einstein)' },
-  { value: 'place' as const, label: 'Place ', placeholder: 'Search by place mentioned (e.g., Paris)' },
+  { value: 'person' as const, label: 'Person mentioned', placeholder: 'Search by Person mentioned (e.g., Einstein)' },
+  { value: 'place' as const, label: 'Place mentioned', placeholder: 'Search by place mentioned (e.g., Paris)' },
 ];
 
 /**
