@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Book, Calendar, Users, Globe } from 'lucide-react';
-import { InfoDialog } from './INfoDialog';
+import { InfoDialog } from './InfoDialog';
 
 interface BookCardProps {
   key:String;
