@@ -31,7 +31,7 @@ export default function Results() {
       
       <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {results.map((doc) => {
-          console.log(doc);
+          // console.log(doc);
           const coverUrl= coverFromCoverI(doc.cover_i);
           
           return (

@@ -49,15 +49,15 @@ const BookCard: React.FC<BookCardProps> = ({
   const imageUrl = coverUrl || `https://www.google.com/url?sa=i&url=https%3A%2F%2Fwpengine.com%2Fresources%2Foptimize-images-for-web%2F&psig=AOvVaw3hcLDf3cRzN0sCyNPkLSRU&ust=1758130337779000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNCZ-5bo3Y8DFQAAAAAdAAAAABAE`;
 
 
-  const handleClick = () => {
-    console.log("clicked",key);
-    // navigate(`/library/book/${key}`);
-  };
+  // const handleClick = () => {
+  //   console.log("clicked",key);
+  //   // navigate(`/library/book/${key}`);
+  // };
 
 
 
   return (
-    <Card className="  w-full hover:shadow-card-hover transition-shadow duration-200 bg-card border-border  bg-[#FFECC0]" onClick={handleClick}>
+    <Card className="  w-full hover:shadow-card-hover transition-shadow duration-200 bg-card border-border  bg-[#FFECC0]" >
       <CardContent className="p-0">
         <div className="flex flex-col sm:flex-row gap-4 p-4">
           {/* Book Cover */}
