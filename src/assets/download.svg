@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128">
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="#B95E82" stroke="#333" stroke-width="2"></circle>
+  
+  <!-- Book -->
+  <path d="M20 20h10v24H20z" fill="#fff" stroke="#333" stroke-width="2"></path>
+  <path d="M34 20h10v24H34z" fill="#fff" stroke="#333" stroke-width="2"></path>
+  
+  <!-- Book spine -->
+  <line x1="30" y1="20" x2="30" y2="44" stroke="#333" stroke-width="2"></line>
+  
+  <!-- Magnifying Glass -->
+  <circle cx="42" cy="42" r="6" fill="none" stroke="#333" stroke-width="2"></circle>
+  <line x1="46" y1="46" x2="52" y2="52" stroke="#333" stroke-width="2" stroke-linecap="round"></line>
+</svg>

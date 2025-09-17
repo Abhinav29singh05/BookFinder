@@ -72,10 +72,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto bg-blue ">
-      <div className="flex flex-col sm:flex-row gap-3 p-4 bg-card rounded-lg shadow-search  border-2 border-black-200">
+    <div className="w-full max-w-3xl mx-auto  ">
+      <div className="bg-[#DE8F5F]  flex flex-col sm:flex-row gap-3 p-4 bg-card rounded-lg shadow-search  ">
         {/* Field Selector */}
-        <div className="sm:w-48 border-2 border-black-200 ">
+        <div className="sm:w-48  ">
           <Select value={selectedField} onValueChange={(value: SearchField) => setSelectedField(value)}>
             <SelectTrigger 
               className="w-full bg-background"
@@ -83,7 +83,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             >
               <SelectValue placeholder="Search by..." />
             </SelectTrigger>
-            <SelectContent className="bg-card border-border border-2 border-blue-300">
+            <SelectContent className="bg-card border-border ">
               {SEARCH_FIELDS.map((field) => (
                 <SelectItem 
                   key={field.value} 
@@ -98,7 +98,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         </div>
 
         {/* Search Input */}
-        <div className="flex-1 border-2 border-black-200">
+        <div className="flex-1 ">
           <Input
             type="text"
             value={query}

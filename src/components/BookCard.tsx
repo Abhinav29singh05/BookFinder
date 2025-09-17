@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Book, Calendar, Users, Globe } from 'lucide-react';
+import { InfoDialog } from './INfoDialog';
 
 interface BookCardProps {
   key:String;
@@ -56,7 +57,7 @@ const BookCard: React.FC<BookCardProps> = ({
 
 
   return (
-    <Card className="w-full hover:shadow-card-hover transition-shadow duration-200 bg-card border-border" onClick={handleClick}>
+    <Card className="  w-full hover:shadow-card-hover transition-shadow duration-200 bg-card border-border  bg-[#FFECC0]" onClick={handleClick}>
       <CardContent className="p-0">
         <div className="flex flex-col sm:flex-row gap-4 p-4">
           {/* Book Cover */}
@@ -87,8 +88,21 @@ const BookCard: React.FC<BookCardProps> = ({
               <div className="flex items-start gap-2 text-sm">
                 <Users className="w-4 h-4 text-muted-foreground flex-shrink-0 mt-0.5" />
                 <span className="text-muted-foreground">
-                  {authors.slice(0, 3).join(', ')}
-                  {authors.length > 3 && ` (+${authors.length - 3} more)`}
+                  {authors.slice(0, 3).join(", ")}
+                  {authors.length > 3 && (
+                    <InfoDialog
+                      title="All Authors"
+                      items={authors}
+                      trigger={
+                        <Badge variant="outline" className="text-xs cursor-pointer bg-[#FFC29B]">
+                           +{authors.length - 3}
+                        </Badge>
+                        // <button className="ml-1 text-blue-600 underline">
+                        //   +{authors.length - 3} more
+                        // </button>
+                      }
+                    />
+                  )}
                 </span>
               </div>
             )}
@@ -118,22 +132,29 @@ const BookCard: React.FC<BookCardProps> = ({
                 <Globe className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                 <div className="flex gap-1 flex-wrap">
                   {languages.slice(0, 4).map((lang, index) => (
-                    <Badge 
-                      key={index} 
-                      variant="secondary" 
-                      className="text-xs bg-secondary text-secondary-foreground"
+                    <Badge
+                      key={index}
+                      variant="secondary"
+                      className="text-xs bg-secondary text-secondary-foreground "
                     >
                       {lang.toUpperCase()}
                     </Badge>
                   ))}
                   {languages.length > 4 && (
-                    <Badge variant="outline" className="text-xs">
-                      +{languages.length - 4}
-                    </Badge>
+                    <InfoDialog
+                      title="All Languages"
+                      items={languages.map((l) => l.toUpperCase())}
+                      trigger={
+                        <Badge variant="outline" className="text-xs cursor-pointer bg-[#FFC29B]">
+                          +{languages.length - 4}
+                        </Badge>
+                      }
+                    />
                   )}
                 </div>
               </div>
             )}
+
           </div>
         </div>
       </CardContent>
