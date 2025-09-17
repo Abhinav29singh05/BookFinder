@@ -73,7 +73,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <div className="w-full max-w-3xl mx-auto  ">
-      <div className="bg-[#DE8F5F]  flex flex-col sm:flex-row gap-3 p-4 bg-card rounded-lg shadow-search  ">
+      <div className="  flex flex-col sm:flex-row gap-3 p-4  rounded-lg shadow-search  bg-[#FFECC0]">
         {/* Field Selector */}
         <div className="sm:w-48  ">
           <Select value={selectedField} onValueChange={(value: SearchField) => setSelectedField(value)}>
