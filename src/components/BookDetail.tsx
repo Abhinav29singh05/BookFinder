@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Book, Calendar, Users, Globe, BookOpen, Link, Clock, Edit } from 'lucide-react';
 import { useLocation } from "react-router-dom";
+import notFound from "../assets/not-found.webp";
+
 
 interface BookApiResponse {
   title?: string;
@@ -117,8 +119,8 @@ export default function BookDetail() {
 
   // Get cover URL
   const getCoverUrl = (covers: number[] | undefined) => {
-    if (!covers || covers.length === 0) return null;
-    return `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg`;
+    if (!covers || covers.length === 0) return notFound;
+    return `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg`|| notFound;
   };
 
   const coverUrl = getCoverUrl(book.covers) || `https://via.placeholder.com/300x450/f5f5f0/8b8680?text=No+Cover`;
