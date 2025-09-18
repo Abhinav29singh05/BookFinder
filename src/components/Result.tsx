@@ -1,10 +1,11 @@
 import React from "react";
 import BookCard from "@/components/BookCard";
 import { useBookSearch } from "@/hooks/useSearch";
+import notfound from "../assets/notfound.svg";
 
 
 function coverFromCoverI(cover_i?: number) {
-  return cover_i ? `https://covers.openlibrary.org/b/id/${cover_i}-M.jpg` : undefined;
+  return cover_i ? `https://covers.openlibrary.org/b/id/${cover_i}-M.jpg` : notfound;
 }
 
 
