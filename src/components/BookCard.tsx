@@ -52,11 +52,11 @@ const BookCard: React.FC<BookCardProps> = ({
 
 
   return (
-    <Card className="  w-full hover:shadow-card-hover transition-shadow duration-200 bg-card border-border  bg-[#FFECC0]" onClick={handleClick}>
+    <Card className="  w-full hover:shadow-card-hover transition-shadow duration-200 bg-card border-border  bg-[#FFECC0]" >
       <CardContent className="p-0">
         <div className="flex flex-col sm:flex-row gap-4 p-4">
           {/* Book Cover */}
-          <div className="flex-shrink-0 self-start">
+          <div className="flex-shrink-0 self-start cursor-pointer " onClick={handleClick}>
             <div className="w-24 h-36 sm:w-30 sm:h-50 rounded-md overflow-hidden bg-muted border border-border">
               <img
                 src={imageUrl}
@@ -71,9 +71,9 @@ const BookCard: React.FC<BookCardProps> = ({
           </div>
 
           {/* Book Information */}
-          <div className="flex-1 min-w-0 space-y-2">
+          <div className="flex-1 min-w-0 space-y-2 " >
             {/* Title */}
-            <h3 className="font-semibold text-lg leading-tight text-card-foreground line-clamp-2">
+            <h3 className="font-semibold text-lg leading-tight text-card-foreground line-clamp-2  cursor-pointer" onClick={handleClick}>
               {title}
             </h3>
 
