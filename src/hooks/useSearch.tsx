@@ -4,18 +4,15 @@ const API_BASE = "https://openlibrary.org/search.json";
 const DEFAULT_LIMIT = 15;
 
 export type SearchFilters = {
-  key?:string;
-  q?: string; // general search
+  // q?: string; // general search
   title?: string;
   author?: string;
   isbn?: string;
   publisher?: string;
   subject?: string; // genre
-  language?: string;
-  published_year?: string;
-  person?: string;
-  place?: string;
-  page?: number; 
+  // person?: string;
+  // place?: string;
+  // page?: number; 
 };
 
 export type BookDoc = {
@@ -59,14 +56,14 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   // Build query string
   function buildUrl(filters: SearchFilters, pageNum: number) {
     const params = new URLSearchParams();
-    if (filters.q) params.set("q", filters.q);
+    // if (filters.q) params.set("q", filters.q);
     if (filters.title) params.set("title", filters.title);
     if (filters.author) params.set("author", filters.author);
     if (filters.isbn) params.set("isbn", filters.isbn);
     if (filters.publisher) params.set("publisher", filters.publisher);
     if (filters.subject) params.set("subject", filters.subject);
-    if (filters.person) params.set("person", filters.person);
-    if (filters.place) params.set("place", filters.place);
+    // if (filters.person) params.set("person", filters.person);
+    // if (filters.place) params.set("place", filters.place);
     params.set("page", String(pageNum));
     params.set("limit", String(DEFAULT_LIMIT));
     return `${API_BASE}?${params.toString()}`;

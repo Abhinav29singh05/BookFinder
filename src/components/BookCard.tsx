@@ -6,7 +6,7 @@ import { Book, Calendar, Users, Globe } from 'lucide-react';
 import { InfoDialog } from './InfoDialog';
 
 interface BookCardProps {
-  key:String;
+  bookKey: string;
   /** Book title */
   title: string;
   /** Array of author names (optional) */
@@ -21,21 +21,11 @@ interface BookCardProps {
   languages?: string[];
 }
 
-/**
- * BookCard component for displaying book information
- * 
- * Features:
- * - Responsive layout (stacked on mobile, horizontal on desktop)
- * - Placeholder image when cover is not available
- * - Displays title, authors, publisher, year, and languages
- * - Clean card design with subtle shadows
- */
-
 
  
 
 const BookCard: React.FC<BookCardProps> = ({
-  key,
+  bookKey,
   title,
   authors = [],
   coverUrl,
@@ -44,20 +34,25 @@ const BookCard: React.FC<BookCardProps> = ({
   languages = []
 }) => {
 
-  // const navigate = useNavigate();
-  // Create a placeholder image URL or use provided cover
+  const navigate = useNavigate();
+
+  // placeholder image url if no url found
   const imageUrl = coverUrl || `https://www.google.com/url?sa=i&url=https%3A%2F%2Fwpengine.com%2Fresources%2Foptimize-images-for-web%2F&psig=AOvVaw3hcLDf3cRzN0sCyNPkLSRU&ust=1758130337779000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNCZ-5bo3Y8DFQAAAAAdAAAAABAE`;
 
 
-  // const handleClick = () => {
-  //   console.log("clicked",key);
-  //   // navigate(`/library/book/${key}`);
-  // };
+  const handleClick = () => {
+    const cleanKey = bookKey.replace("/works/", ""); // remove prefix
+    navigate(`/book/${cleanKey}`, {
+      state: {
+        authors: authors || []   // <-- explicitly pass the authors array of strings
+      }
+    });
+  };
 
 
 
   return (
-    <Card className="  w-full hover:shadow-card-hover transition-shadow duration-200 bg-card border-border  bg-[#FFECC0]" >
+    <Card className="  w-full hover:shadow-card-hover transition-shadow duration-200 bg-card border-border  bg-[#FFECC0]" onClick={handleClick}>
       <CardContent className="p-0">
         <div className="flex flex-col sm:flex-row gap-4 p-4">
           {/* Book Cover */}
@@ -79,7 +74,6 @@ const BookCard: React.FC<BookCardProps> = ({
           <div className="flex-1 min-w-0 space-y-2">
             {/* Title */}
             <h3 className="font-semibold text-lg leading-tight text-card-foreground line-clamp-2">
-              {key}
               {title}
             </h3>
 

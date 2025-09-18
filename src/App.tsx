@@ -7,7 +7,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SearchBar from "@/components/SearchBar";
 import Results from "@/components/Result";
-// import BookDetail from './components/BookDetail'; // keep for later if needed
+import { BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+// import BookDetails2 from './components/BookDetail';
+import BookDetail from './components/BookDetail';
 
 const queryClient = new QueryClient();
 
@@ -24,9 +27,10 @@ const MainContent = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="">
+      <Navbar/>
       <SearchBar
-        initialField="q"
+        initialField="title"
         initialQuery=""
         onSearch={handleSearch}
         onClear={handleClear}
@@ -41,16 +45,21 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <Navbar />
-      <SearchProvider>
-        <MainContent />
-        {/* 
-        <Routes>
-          <Route path="/" element={<MainContent />} />
-          <Route path="/book/*" element={<BookDetail />} />
-        </Routes>
-        */}
-      </SearchProvider>
+        <BrowserRouter>
+          
+            {/* <MainContent /> */}
+            
+            <SearchProvider>
+            <Routes>
+              <Route path="/" element={<MainContent />} />
+            </Routes>
+          </SearchProvider>
+
+          <Routes>
+            {/* <Route path="/book/:id" element={<BookDetail />} /> */}
+            <Route path="/book/:id" element={<BookDetail />} />
+          </Routes>
+        </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

@@ -9,14 +9,10 @@ function coverFromCoverI(cover_i?: number) {
 
 
 export default function Results() {
-  // const results = sampleBooks;
-  // const loading = false;
-  // const error = null;
-  // const hasMore = false;
   const { results, loading, error, loadMore, hasMore } = useBookSearch();
 
   return (
-    <div className="space-y-6 p-4">
+    <div className="space-y-6 p-4 ">
       {error && (
         <div className="text-destructive text-center p-4 bg-destructive/10 rounded-lg border border-destructive/20">
           Error: {error}
@@ -31,12 +27,12 @@ export default function Results() {
       
       <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {results.map((doc) => {
-          // console.log(doc);
+          // console.log(doc,doc.key);
           const coverUrl= coverFromCoverI(doc.cover_i);
           
           return (
             <BookCard
-              key={doc.key}
+              bookKey={doc.key}
               title={doc.title}
               authors={doc.author_name}
               coverUrl={coverUrl}

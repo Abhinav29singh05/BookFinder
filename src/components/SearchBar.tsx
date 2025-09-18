@@ -5,7 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Search, X } from 'lucide-react';
 
 // Search field type definition
-type SearchField = 'q' | 'title' | 'author' | 'isbn' | 'publisher' | 'subject' | 'language' | 'published_year';
+type SearchField =  'title' | 'author' | 'isbn' | 'publisher' | 'subject' ;
 
 interface SearchBarProps {
   /** Initial search field selection */
@@ -20,28 +20,20 @@ interface SearchBarProps {
 
 // Field options with labels and placeholder text
 const SEARCH_FIELDS = [
-  { value: 'q' as const, label: 'General search', placeholder: 'General search' },
+  // { value: 'q' as const, label: 'General search', placeholder: 'General search' },
   { value: 'title' as const, label: 'Title', placeholder: 'Search by title' },
   { value: 'author' as const, label: 'Author', placeholder: 'Search by author name' },
   { value: 'isbn' as const, label: 'ISBN', placeholder: 'Search by ISBN' },
   { value: 'publisher' as const, label: 'Publisher', placeholder: 'Search by publisher' },
-  { value: 'subject' as const, label: 'Genre', placeholder: 'Search by genre/subject' },
-  { value: 'person' as const, label: 'Person mentioned', placeholder: 'Search by Person mentioned (e.g., Einstein)' },
-  { value: 'place' as const, label: 'Place mentioned', placeholder: 'Search by place mentioned (e.g., Paris)' },
+  { value: 'Genre' as const, label: 'Genre', placeholder: 'Search by genre (e.g. Fiction' },
+  // { value: 'person' as const, label: 'Person mentioned', placeholder: 'Search by Person mentioned (e.g., Einstein)' },
+  // { value: 'place' as const, label: 'Place mentioned', placeholder: 'Search by place mentioned (e.g., Paris)' },
 ];
 
-/**
- * SearchBar component for library book search
- * 
- * Features:
- * - Dropdown to select search field
- * - Text input for search query
- * - Search and Clear buttons
- * - Enter key support for search
- * - Dynamic placeholder text based on selected field
- */
+
+
 const SearchBar: React.FC<SearchBarProps> = ({
-  initialField = 'q',
+  initialField = 'title',
   initialQuery = '',
   onSearch,
   onClear
@@ -60,7 +52,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   const handleClear = () => {
-    setSelectedField('q');
+    setSelectedField('title');
     setQuery('');
     onClear?.();
   };
@@ -72,7 +64,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto  ">
+    <div className="w-full max-w-3xl mt-4 mx-auto  ">
       <div className="  flex flex-col sm:flex-row gap-3 p-4  rounded-lg shadow-search  bg-[#FFECC0]">
         {/* Field Selector */}
         <div className="sm:w-48  ">
