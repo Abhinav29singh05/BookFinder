@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Book, Calendar, Users, Globe, BookOpen, Link, Clock, Edit } from 'lucide-react';
 import { useLocation } from "react-router-dom";
-import notFound from "../assets/not-found.webp";
+import notFound from "../assets/notfound.svg";
 
 
 interface BookApiResponse {
